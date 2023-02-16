@@ -2,10 +2,12 @@ import './SelectInput.css'
 
 export function SelectInput(props) {
     return (
-        <div>
+        <div className='select-input'>
             <label>{props.label}</label>
-            <select>
-                {props.itens.map(item => <option>{item}</option>)}
+            <select required={props.mandatory}>
+                {props.itens.map(item => {
+                    return <option key={item}>{item}</option>
+                })}
             </select>
         </div>
     );

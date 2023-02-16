@@ -1,9 +1,9 @@
 import './Form.css';
 import TextInput from '../TextInput'
 import SelectInput from '../SelectInput';
+import Button from '../Button';
 
 export function Form() {
-
     const teams = [
         'Loud',
         'Furia',
@@ -14,14 +14,22 @@ export function Form() {
         'Team Liquid'
     ]
 
+    function submit(event) {
+        event.preventDefault();
+        console.log('Vou submeter o formulário');
+    }
+
     return (
         <section className='form'>
-            <form>
+            <form onSubmit={submit}>
                 <h2>Preencha os dados para criar o card do player</h2>
-                <TextInput label='Nome' placeholder='Digite seu nome' />
-                <TextInput label='Agent' placeholder='Digite sua classe de agente' />
+                <TextInput mandatory={true} label='Nome' placeholder='Digite seu nome' />
+                <TextInput mandatory={true} label='Agente' placeholder='Digite sua classe de agente' />
                 <TextInput label='Imagem' placeholder='Digite o endereço da imagem' />
-                <SelectInput itens={teams} />
+                <SelectInput label='Organização' itens={teams} />
+                <Button>
+                    Criar Card
+                </Button>
             </form>
         </section>
     );
