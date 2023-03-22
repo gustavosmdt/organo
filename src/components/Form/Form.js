@@ -4,7 +4,7 @@ import SelectInput from '../SelectInput';
 import Button from '../Button';
 import { useState } from 'react';
 
-export function Form() {
+export function Form(props) {
 
     const teams = [
         'Loud',
@@ -23,7 +23,12 @@ export function Form() {
 
     function submit(event) {
         event.preventDefault();
-        console.log(`Vou submeter o formulário: ${name}, ${agent}, ${image}, ${team}`);
+        props.whenRegisterCollaborator({
+            name,
+            agent,
+            image,
+            team
+        })
     }
 
     return (
