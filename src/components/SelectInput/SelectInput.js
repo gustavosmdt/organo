@@ -4,7 +4,9 @@ export function SelectInput(props) {
     return (
         <div className='select-input'>
             <label>{props.label}</label>
-            <select required={props.mandatory}>
+            <select onChange={event => props.whenEdited(event.target.value)}
+                    required={props.mandatory}>
+                <option key="Selecione">Selecione</option>
                 {props.itens.map(item => {
                     return <option key={item}>{item}</option>
                 })}
