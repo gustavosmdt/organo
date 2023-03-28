@@ -6,16 +6,6 @@ import { useState } from 'react';
 
 export function Form(props) {
 
-    const teams = [
-        'Loud',
-        'Furia',
-        'ODDK',
-        'Cloud9',
-        'NIP',
-        'Sentinels',
-        'Team Liquid'
-    ];
-
     const [name, setName] = useState('');
     const [agent, setAgent] = useState('');
     const [image, setImage] = useState('');
@@ -29,6 +19,11 @@ export function Form(props) {
             image,
             team
         })
+
+        setName('');
+        setAgent('');
+        setImage('');
+        setTeam('');
     }
 
     return (
@@ -58,7 +53,7 @@ export function Form(props) {
                 <SelectInput
                     mandatory={true}
                     label='Organização'
-                    itens={teams} 
+                    itens={props.teams} 
                     value={team}
                     whenEdited={value => setTeam(value)}
                 />
